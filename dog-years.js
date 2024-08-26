@@ -8,7 +8,7 @@ const sec = 31557600;
         jupiter: (7*(age/sec))/11.862615,
         saturn: (7*(age/sec))/29.447498 ,
         uranus: (7*(age/sec))/84.016846,
-        venus: (7*(age/sec))/164.79132 ,
+        neptune: (7*(age/sec))/164.79132 ,
 
     }
     return parseFloat(years[planet].toFixed(2))
