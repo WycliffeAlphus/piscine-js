@@ -17,13 +17,13 @@ function last(n){
 }
 
 function kiss(n){
-    if  (typeof n == "string"){
-        const newarr = [n.length-1, n.charAt(0)];
+    if  (typeof n === "string"){
+        const newarr = [n.charAt(length-1), n.charAt(0)];
         return newarr;
     }
 
     if (Array.isArray(n)){
-        const newarr2 = [n.length-1, n[0]];
+        const newarr2 = [n[n.length-1], n[0]];
         return newarr2;
     }
 }
