@@ -16,6 +16,6 @@ function whisper(n){
 
 function capitalize(n){
     let first = n.charAt(0).toUpperCase();
-    let second = n.Slice(1).toLowerCase();
+    let second = n.slice(1).toLowerCase();
     return first+second
 }
