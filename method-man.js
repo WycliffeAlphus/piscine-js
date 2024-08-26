@@ -1,5 +1,5 @@
 function words(n){
-return n.split("");
+return n.split(" ");
 }
 
 function sentence(n){
