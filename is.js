@@ -5,9 +5,7 @@ is.num = function(n){
 }
 
 is.nan = function(n){
-    if (typeof n==='nan'){
-        return true;
-    }
+    return n !== n;
 }
 
 is.str = function(n){
@@ -51,5 +49,5 @@ is.truthy = function(n){
     return !!n;
 }
 is.falsy = function(n){
-    return !!n;
+    return !n;
 }
