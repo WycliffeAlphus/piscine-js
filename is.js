@@ -26,9 +26,7 @@ is.undef = function(n){
     }
 }
 is.def = function(n){
-    if (typeof n==='undefined'){
-        return false;
-    }
+    return typeof n !=='undefined';
 }
 is.arr = function(n){
   return Array.isArray(n);
