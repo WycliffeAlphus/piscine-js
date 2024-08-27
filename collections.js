@@ -2,13 +2,15 @@ function arrToSet(n){
 return new Set(n);
 }
 function arrToStr(n){
-return n.join("");
+let nb = n.join("");   
+return nb;
 }
 function setToArr(n) {
 return [...n];
 }
 function setToStr(n){
-return n.join("");
+let nb = n.join("");       
+return nb;
 }
 function strToArr(n){
 return n.Split();
