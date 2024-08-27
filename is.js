@@ -31,14 +31,10 @@ is.def = function(n){
     }
 }
 is.arr = function(n){
-    if (typeof n==='array'){
-        return true;
-    }
+  return Array.isArray(n);
 }
 is.obj = function(n){
-    if (typeof n==='object' || typeof n==='null'){
-        return true;
-    }
+    return typeof n === 'object' && (!Array.isArray(n)) && typeof n!== 'null';
 }
 is.fun = function(n){
     if (typeof n=='function'){
