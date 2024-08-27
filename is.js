@@ -1,23 +1,23 @@
 is.num = function(n){
-    if (typeof n==='Number'){
+    if (typeof n==='number'){
         return true;
     }
 }
 
 is.nan = function(n){
-    if (typeof n==='NaN'){
+    if (typeof n==='nan'){
         return true;
     }
 }
 
 is.str = function(n){
-    if (typeof n==='String'){
+    if (typeof n==='string'){
         return true;
     }
 }
 
 is.bool = function(n){
-    if (typeof n==='Boolean'){
+    if (typeof n==='boolean'){
         return true;
     }
 }
@@ -33,12 +33,12 @@ is.def = function(n){
     }
 }
 is.arr = function(n){
-    if (typeof n==='Array'){
+    if (typeof n==='array'){
         return true;
     }
 }
 is.obj = function(n){
-    if (typeof n==='Object' || typeof n==='null'){
+    if (typeof n==='object' || typeof n==='null'){
         return true;
     }
 }
