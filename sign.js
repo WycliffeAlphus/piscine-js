@@ -1,13 +1,22 @@
 function sign(n){
     if (n>0){
-        return 1
+        return 1;
     } else if (n<0){
-        return -1
+        return -1;
     } else {
-        return 0
+        return 0;
     }
 }
 
 function sameSign(a,b){
-    return a===b?true:false
+    if (a===0&&b===0){
+        return true
+    }
+    if (a<0&&b<0){
+        return true;
+    } else if (a>0&&b>0){
+        return true;
+    } else{
+        return false;
+    }
 }
