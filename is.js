@@ -34,7 +34,7 @@ is.arr = function(n){
   return Array.isArray(n);
 }
 is.obj = function(n){
-    return typeof n === 'object' && (!Array.isArray(n)) && typeof n!== 'null';
+    return (typeof n === 'object') && (!Array.isArray(n)) && ( n!==null);
 }
 is.fun = function(n){
     if (typeof n=='function'){
