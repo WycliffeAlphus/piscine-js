@@ -1,6 +1,6 @@
 //indexOf accept an array to be searched, and a value to be matched, returns the index of the first occurrence. 
 function indexOf(a, b, c){
-if (typeof c=='undefined'){
+if (typeof c==='undefined'){
    c = 0;
 }
 
@@ -15,7 +15,7 @@ return -1;
 // lastIndexOf returns the index of the last occurrence
 function lastIndexOf(a, b){
     
-     for (let i=a.length; i>=0; i++){
+     for (let i=a.length; i>=0; i--){
          if (a[i] === b) {
              return i;
          }
