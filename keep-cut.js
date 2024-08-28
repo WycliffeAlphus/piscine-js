@@ -52,25 +52,11 @@ function keepLast(n){
 return res;
 }
 
-function keepFirstLast(n){
-    let ln = n.length;
-    let res1 ="";
-for (let i=0;i<n.length;i++){
-    res1+=n[i];
-    if (i ==1){
-        ln = ln-res1.length
-        break;
-    }
+if (n.length <= 4) {
+    return n; // If the string length is 4 or less, return the string as it is.
 }
-let res2 ="";
-for (let i=n.length-1;i>ln;i--){
-    res2 =n[i]+res2
-    if (i ==n.length-2){
-        break;
-    }
-}
-if (n.length==res1.length){
-    return res1
-}
-return res1+res2;
-}
+// Use slice to get the first two and last two characters
+let firstTwo = n.slice(0, 2);  // First two characters
+let lastTwo = n.slice(-2);     // Last two characters
+
+return firstTwo + lastTwo;
