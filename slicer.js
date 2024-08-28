@@ -6,6 +6,9 @@ if (typeof c=='undefined'){
 if (b<0){
     b = a.length+b
 }
+if (c<0){
+    c = a.length+c
+}
 if (typeof a === 'string'){
     let result ="";
     for (let i=b; i<c; i++){
