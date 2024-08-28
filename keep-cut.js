@@ -13,7 +13,7 @@ function cutLast(n){
     let res ="";
     for (let i=n.length-1;i>=0;i--){
         if (i < n.length-2){
-            res+=n[i];
+            res =n[i]+res;
         }
     }
     return res;
@@ -28,7 +28,7 @@ for (let i=0;i<n.length;i++){
 }
 for (let i=n.length-1;i>=0;i--){
     if (i < n.length-2){
-        res+=n[i];
+        res =n[i]+res;
     }
 }
 return res;
@@ -48,7 +48,7 @@ function keepFirst(n){
 function keepLast(n){
     let res = "";
     for (let i=n.length;i>=0;i--){
-        res+=n[i];
+        res =n[i]+res;
         if (i == n.length-2){
             return res;
         }
@@ -65,7 +65,7 @@ for (let i=0;i<n.length;i++){
     }
 }
 for (let i=n.length-1;i>=0;i--){
-    res+=n[i]
+    res =n[i]+res
     if (i < n.length-2){
         break;
     }
