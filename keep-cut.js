@@ -69,5 +69,3 @@ for (let i=n.length-1;i>=0;i--){
 }
 return res1+res2;
 }
-
-console.log(keepFirstLast('abcdef'))
