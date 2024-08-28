@@ -6,5 +6,3 @@ result+=a
  }
  return result;
  }
-
-console.log(repeat('a', 3));
