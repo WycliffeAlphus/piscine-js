@@ -21,16 +21,12 @@ function cutLast(n){
 
 function cutFirstLast(n){
     let res ="";
-for (let i=0;i<n.length;i++){
+for (let i=0;i<n.length-2;i++){
     if (i > 1){
         res+=n[i];
     }
 }
-for (let i=n.length-1;i>=0;i--){
-    if (i < n.length-2){
-        res =n[i]+res;
-    }
-}
+
 return res;
 }
 
@@ -47,30 +43,31 @@ function keepFirst(n){
 
 function keepLast(n){
     let res = "";
-    for (let i=n.length;i>=0;i--){
-        res =n[i]+res;
-        if (i == n.length-2){
+    for (let i=n.length-1;i>=0;i--){
+        res = n[i]+res;
+        if (i < n.length-1){
             return res;
         }
     }
-    return res;
-}
-
-function keepFirstLast(n){
-    let res ="";
-for (let i=0;i<n.length;i++){
-    res+=n[i];
-    if (i > 1){
-        break;
-    }
-}
-for (let i=n.length-1;i>=0;i--){
-    res =n[i]+res
-    if (i < n.length-2){
-        break;
-    }
-}
 return res;
 }
 
-console.log(cutFirstLast('abcdef'))
+function keepFirstLast(n){
+    let res1 ="";
+for (let i=0;i<n.length;i++){
+    res1+=n[i];
+    if (i ===1){
+        break;
+    }
+}
+let res2 ="";
+for (let i=n.length-1;i>=0;i--){
+    res2 =n[i]+res2
+    if (i === n.length-2){
+        break;
+    }
+}
+return res1+res2;
+}
+
+console.log(keepFirstLast('abcdef'))
