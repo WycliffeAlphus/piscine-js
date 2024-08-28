@@ -52,11 +52,13 @@ function keepLast(n){
 return res;
 }
 
-if (n.length <= 4) {
-    return n; // If the string length is 4 or less, return the string as it is.
-}
-// Use slice to get the first two and last two characters
-let firstTwo = n.slice(0, 2);  // First two characters
-let lastTwo = n.slice(-2);     // Last two characters
+function keepFirstLast(n){
+    if (n.length <= 4) {
+        return n; // If the string length is 4 or less, return the string as it is.
+    }
+    // Use slice to get the first two and last two characters
+    let firstTwo = n.slice(0, 2);  // First two characters
+    let lastTwo = n.slice(-2);     // Last two characters
 
-return firstTwo + lastTwo;
+    return firstTwo + lastTwo;
+}
