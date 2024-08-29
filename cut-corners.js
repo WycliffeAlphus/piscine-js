@@ -1,5 +1,8 @@
 // Custom modulo function that acts like the % operator, without using it.
 function modulo(a, b) {
+    if (b===0){
+        return 0;
+    }
     let sign = false;
     if (a < 0 && b < 0) {
         a = -a;
