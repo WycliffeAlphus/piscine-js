@@ -4,10 +4,9 @@ function round(nb) {
     if (sign) {
         nb = -nb;
     }
-let firstPart =0;
-    for (;firstPart + 1 <= nb;) {
-        firstPart++
-        if (firstPart+1>nb){
+    let firstPart = 0;
+    for (; firstPart <= nb; firstPart++) {
+        if (firstPart + 1 > nb) {
             break;
         }
     }
@@ -22,19 +21,14 @@ function ceil(nb) {
     if (sign) {
         nb = -nb;
     }
-    let firstPart=0;
-    for (;firstPart < nb;) {
-        firstPart++
-        if (firstPart>=nb){
+    let firstPart = 0;
+    for (; firstPart <= nb; firstPart++) {
+        if (firstPart >= nb) {
             break;
         }
     }
 
-    if (sign) {
-        return -(firstPart > nb ? firstPart - 1 : firstPart);
-    }
-
-    return firstPart;
+    return sign ? -(firstPart > nb ? firstPart - 1 : firstPart) : firstPart;
 }
 
 // floor behaves similar to Math.floor()
@@ -43,19 +37,14 @@ function floor(nb) {
     if (sign) {
         nb = -nb;
     }
-    let firstPart=0;
-    for (;firstPart + 1 <= nb;) {
-        firstPart++
-        if (firstPart+1>nb){
+    let firstPart = 0;
+    for (; firstPart < nb; firstPart++) {
+        if (firstPart + 1 > nb) {
             break;
         }
     }
 
-    if (sign) {
-        return -(firstPart + (firstPart < nb ? 1 : 0));
-    }
-
-    return firstPart;
+    return sign ? -(firstPart + (firstPart < nb ? 1 : 0)) : firstPart;
 }
 
 // trunc behaves similar to Math.trunc()
@@ -64,14 +53,17 @@ function trunc(nb) {
     if (sign) {
         nb = -nb;
     }
-    let firstPart=0
-    for (;firstPart + 1 <= nb;){
-        firstPart++
-        if (firstPart+1>nb){
+    let firstPart = 0;
+    for (; firstPart < nb; firstPart++) {
+        if (firstPart + 1 > nb) {
             break;
         }
     }
 
-    return sign ? -(firstPart) : firstPart;
+    return sign ? -firstPart : firstPart;
 }
-
+const nums = [3.7, -3.7, 3.1, -3.1]
+console.log(nums.map(round))
+console.log(nums.map(floor))
+console.log(nums.map(trunc))
+console.log(nums.map(ceil))
