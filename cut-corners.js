@@ -36,7 +36,7 @@ function floor(nb){
         firstPart++
     }
       if (sign){
-        return -firstPart
+        return -(firstPart+(nb>firstPart?1:0));
     }
     return firstPart
 }
