@@ -64,5 +64,5 @@ function trunc(nb) {
         firstPart++;
     }
 
-    return sign ? -(firstPart-1) : firstPart;
+    return sign ? -(firstPart) : firstPart;
 }
