@@ -5,10 +5,9 @@ function round(nb) {
         nb = -nb;
     }
     let firstPart = 0;
-    for (; firstPart <= nb; ) {
+    for (; firstPart < nb; ) {
         firstPart++
     }
-
     let result = (nb - firstPart) >= 0.5 ? firstPart + 1 : firstPart;
     return sign ? -result : result;
 }
@@ -20,7 +19,7 @@ function ceil(nb) {
         nb = -nb;
     }
     let firstPart = 0;
-    for (; firstPart <= nb; ) {
+    for (; firstPart < nb; ) {
         firstPart++
     }
 
@@ -34,12 +33,13 @@ function floor(nb) {
         nb = -nb;
     }
     let firstPart = 0;
-    for (; firstPart < nb; ) {
+    for (; firstPart < nb - 1; ) {
         firstPart++
     }
 
     return sign ? -(firstPart + (firstPart < nb ? 1 : 0)) : firstPart;
 }
+
 
 // trunc behaves similar to Math.trunc()
 function trunc(nb) {
@@ -48,7 +48,7 @@ function trunc(nb) {
         nb = -nb;
     }
     let firstPart = 0;
-    for (; firstPart <= nb; ) {
+    for (; firstPart < nb - 1; ) {
         firstPart++
     }
 
