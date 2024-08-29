@@ -1,5 +1,8 @@
 // round behaves similar to Math.round()
 function round(nb) {
+    if (nb === 0){
+        return 0
+    }
     let sign = nb < 0;
     if (sign) {
         nb = -nb;
@@ -14,6 +17,9 @@ function round(nb) {
 
 // ceil behaves similar to Math.ceil()
 function ceil(nb) {
+    if (nb === 0){
+        return 0
+    }
     let sign = nb < 0;
     if (sign) {
         nb = -nb;
@@ -28,6 +34,9 @@ function ceil(nb) {
 
 // floor behaves similar to Math.floor()
 function floor(nb) {
+    if (nb === 0){
+        return 0
+    }
     let sign = nb < 0;
     if (sign) {
         nb = -nb;
@@ -43,6 +52,9 @@ function floor(nb) {
 
 // trunc behaves similar to Math.trunc()
 function trunc(nb) {
+    if (nb === 0){
+        return 0
+    }
     let sign = nb < 0;
     if (sign) {
         nb = -nb;
