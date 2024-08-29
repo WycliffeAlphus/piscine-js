@@ -4,12 +4,16 @@ if (Array.isArray(nb)){
     for (let i=0;i<nb.length; i++){
         newArray.unshift(nb[i])
     }
+
+    return newArray
 }
-let newArray1 = "";
-if (typeof n==='string'){
+
+if (typeof nb==='string'){
+    let newArray1 = "";
     for (let i=0;i<nb.length; i++){
         newArray1 = nb[i]+newArray
     }
     return newArray1
 }
 }
+
