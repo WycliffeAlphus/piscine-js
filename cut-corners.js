@@ -10,9 +10,7 @@ function round(nb) {
         firstPart++;
     }
 
-    // Handle rounding based on the fractional part
     let result = (nb - firstPart) >= 0.5 ? firstPart + 1 : firstPart;
-
     return sign ? -result : result;
 }
 
@@ -28,7 +26,11 @@ function ceil(nb) {
         firstPart++;
     }
 
-    return sign ? -firstPart : firstPart;
+    if (sign) {
+        return -(firstPart > nb ? firstPart - 1 : firstPart);
+    }
+
+    return firstPart;
 }
 
 // floor behaves similar to Math.floor()
@@ -43,8 +45,11 @@ function floor(nb) {
         firstPart++;
     }
 
-    // Adjust for negative numbers
-    return sign ? -(firstPart + (nb > firstPart ? 1 : 0)) : firstPart;
+    if (sign) {
+        return -(firstPart + (firstPart < nb ? 1 : 0));
+    }
+
+    return firstPart;
 }
 
 // trunc behaves similar to Math.trunc()
