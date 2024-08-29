@@ -73,6 +73,12 @@ function floor(nb) {
 // trunc function behaves similar to Math.trunc()
 function trunc(nb) {
     nb = Number(nb);
+
+    let res = 0 ;
+    if (nb > 0xfffffffff){
+        nb -= 0xfffffffff;
+        res = 0xfffffffff;
+    }
     
     // Return 0 for special cases
     if (nb === 0 || nb > Number.MAX_SAFE_INTEGER || nb < Number.MIN_SAFE_INTEGER) {
@@ -91,5 +97,5 @@ function trunc(nb) {
 
     // Use modulo safely
     let intPart = nb - modulo(nb, 1);
-    return sign ? -intPart : intPart;
+    return sign ? -(res+intPart) : (res+intPart);
 }
