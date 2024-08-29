@@ -1,24 +1,59 @@
 function round(nb){
-    const nbDec = nb-parseInt(nb);
-    if (nbDec >=0.5) {
-        return parseInt(nb)+1;
-    } else if (nbDec < 0.5) {
-        return parseInt(nb);
-    } else {
-        return parseInt(nb);
-    }
+// round behaves similar to Math.round()
+if (nb<0) return -round(-nb);
+  let firstPart = 0;
+  while(firstPart+1 <= nb){
+      firstPart++
+  }
+  return (nb-firstPart)>0.5?firstPart+1:firstPart;
 }
 
+// ceil behaves similar to Math.ceil()
 function ceil(nb){
-    const firstPart = parseInt(nb);
-    return (nb>firstPart)?firstPart+1:nb;
+         let sign = false;
+    if(nb<0) {
+        sign=true;
+        nb = -nb;
+    }
+    let firstPart = 0;
+    while(firstPart<nb){
+        firstPart++
+    }
+      if (sign){
+        return -firstPart
+    }
+    return firstPart;
 }
-
+// floor behaves similar to Math.ceil()
 function floor(nb){
-    const firstPart = parseInt(nb);
-    return(nb>firstPart)?firstPart-1:nb;
+       let sign = false;
+    if(nb<0) {
+        sign=true;
+        nb = -nb;
+    };
+    let firstPart = 0
+    while(firstPart+1<=nb){
+        firstPart++
+    }
+      if (sign){
+        return -firstPart
+    }
+    return firstPart
 }
 
+//trunc behaves similar to Math.trunc()
 function trunc(nb){
-    return parseInt(nb);
+    let sign = false;
+    if(nb<0) {
+        sign=true
+        nb = -nb
+    };
+    let firstPart = 0;
+    while(firstPart+1<=nb){
+    firstPart++
+    }
+    if (sign){
+        return -firstPart
+    }
+    return firstPart;
 }
