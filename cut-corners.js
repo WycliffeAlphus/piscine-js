@@ -86,5 +86,7 @@ function floor(nb) {
 
 
 function trunc(nb){
-    return nb
+    nb = nb.toString()
+    nb = nb.split(".")
+    return Number(nb[0])
 }
