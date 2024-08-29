@@ -40,6 +40,7 @@ function round(nb) {
     return sign ? -result : result;
 }
 
+
 // ceil function behaves similar to Math.ceil()
 function ceil(nb) {
     nb = Number(nb);
@@ -70,16 +71,20 @@ function floor(nb) {
 }
 
 // trunc function behaves similar to Math.trunc()
-function trunc(nb) {
-    nb = Number(nb);
-    if (nb === 0 || nb > Number.MAX_SAFE_INTEGER || nb < Number.MIN_SAFE_INTEGER) {
-        return 0;
-    }
-    let sign = nb < 0;
-    if (sign) {
-        nb = -nb;
-    }
-    let intPart = nb - modulo(nb, 1);
-    return sign ? -intPart : intPart;
-}
+// function trunc(nb) {
+//     nb = Number(nb);
+//     if (nb === 0 || nb > Number.MAX_SAFE_INTEGER || nb < Number.MIN_SAFE_INTEGER) {
+//         return 0;
+//     }
+//     let sign = nb < 0;
+//     if (sign) {
+//         nb = -nb;
+//     }
+//     let intPart = nb - modulo(nb, 1);
+//     return sign ? -intPart : intPart;
+// }
 
+
+function trunc(nb){
+    return true
+}
