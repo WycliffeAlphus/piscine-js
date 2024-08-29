@@ -11,7 +11,7 @@ function round(nb) {
     }
 
     let result = (nb - firstPart) >= 0.5 ? firstPart + 1 : firstPart;
-    return sign ? -result : result;
+    return sign ? -(result-1) : result;
 }
 
 // ceil behaves similar to Math.ceil()
@@ -64,5 +64,5 @@ function trunc(nb) {
         firstPart++;
     }
 
-    return sign ? -firstPart : firstPart;
+    return sign ? -(firstPart-1) : firstPart;
 }
