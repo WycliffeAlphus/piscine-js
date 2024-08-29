@@ -1,6 +1,6 @@
 // round behaves similar to Math.round()
 function round(nb) {
-    if (nb === 0 || nb > 68719476735){
+    if (nb === 0 || Number.MAX_SAFE_INTEGER || Number.MIN_SAFE_INTEGER){
         return 0
     }
     let sign = nb < 0;
@@ -17,7 +17,7 @@ function round(nb) {
 
 // ceil behaves similar to Math.ceil()
 function ceil(nb) {
-    if (nb === 0 || nb > 68719476735){
+    if (nb === 0 || Number.MAX_SAFE_INTEGER || Number.MIN_SAFE_INTEGER){
         return 0
     }
     let sign = nb < 0;
@@ -34,7 +34,7 @@ function ceil(nb) {
 
 // floor behaves similar to Math.floor()
 function floor(nb) {
-    if (nb === 0 || nb > 68719476735){
+    if (nb === 0 || Number.MAX_SAFE_INTEGER || Number.MIN_SAFE_INTEGER){
         return 0
     }
     let sign = nb < 0;
@@ -52,7 +52,7 @@ function floor(nb) {
 
 // trunc behaves similar to Math.trunc()
 function trunc(nb) {
-    if (nb === 0 ){
+    if (nb === 0 || Number.MAX_SAFE_INTEGER || Number.MIN_SAFE_INTEGER){
         return 0
     }
     let sign = nb < 0;
