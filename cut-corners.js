@@ -52,7 +52,7 @@ function floor(nb) {
 
 // trunc behaves similar to Math.trunc()
 function trunc(nb) {
-    if (nb === 0 || nb > 68719476735){
+    if (nb === 0 ){
         return 0
     }
     let sign = nb < 0;
