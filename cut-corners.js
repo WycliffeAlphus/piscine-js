@@ -5,7 +5,7 @@ function round(nb) {
         nb = -nb;
     }
     let firstPart = 0;
-    for (; firstPart < nb; ) {
+    for (; firstPart <= nb - 1; ) {
         firstPart++
     }
     let result = (nb - firstPart) >= 0.5 ? firstPart + 1 : firstPart;
@@ -56,6 +56,4 @@ function trunc(nb) {
 }
 
 
-let numArr = [3, -3, 3, -3, 0]
 
-console.log(numArr.map(round))
