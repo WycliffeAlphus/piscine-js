@@ -8,6 +8,9 @@ function round(nb) {
     let firstPart = 0;
     while (firstPart + 1 <= nb) {
         firstPart++;
+        if (firstPart+1>nb){
+            break;
+        }
     }
 
     let result = (nb - firstPart) >= 0.5 ? firstPart + 1 : firstPart;
@@ -24,6 +27,9 @@ function ceil(nb) {
     let firstPart = 0;
     while (firstPart < nb) {
         firstPart++;
+        if (firstPart>=nb){
+            break;
+        }
     }
 
     if (sign) {
@@ -43,6 +49,9 @@ function floor(nb) {
     let firstPart = 0;
     while (firstPart + 1 <= nb) {
         firstPart++;
+        if (firstPart+1>nb){
+            break;
+        }
     }
 
     if (sign) {
@@ -62,8 +71,10 @@ function trunc(nb) {
     let firstPart = 0;
     while (firstPart + 1 <= nb) {
         firstPart++;
+        if (firstPart+1>nb){
+            break;
+        }
     }
 
     return sign ? -(firstPart) : firstPart;
 }
-
