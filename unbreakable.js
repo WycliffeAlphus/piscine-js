@@ -12,6 +12,9 @@ for (let i=0; i<a.length; i++){
     }
     temp+=a[i]
 }
+if (temp.length > 0){
+    newS.push(temp)
+}
 return newS
 }
 
