@@ -1,68 +1,63 @@
 // round behaves similar to Math.round()
-function round(nb){
-           let sign = false;
-    if(nb<0) {
-        sign=true;
+function round(nb) {
+    let sign = nb < 0;
+    if (sign) {
         nb = -nb;
     }
-if (nb<0) return -round(-nb);
-  let firstPart = 0;
-  while(firstPart+1 <= nb){
-      firstPart++;
-  }
-  if (sign){
-      return -((nb-firstPart)>0.5?firstPart+1:firstPart);
-  }
-  return (nb-firstPart)>0.5?firstPart+1:firstPart;
+
+    let firstPart = 0;
+    while (firstPart + 1 <= nb) {
+        firstPart++;
+    }
+
+    // Handle rounding based on the fractional part
+    let result = (nb - firstPart) >= 0.5 ? firstPart + 1 : firstPart;
+
+    return sign ? -result : result;
 }
 
 // ceil behaves similar to Math.ceil()
-function ceil(nb){
-         let sign = false;
-    if(nb<0) {
-        sign=true;
+function ceil(nb) {
+    let sign = nb < 0;
+    if (sign) {
         nb = -nb;
     }
+
     let firstPart = 0;
-    while(firstPart<nb){
-        firstPart++
+    while (firstPart < nb) {
+        firstPart++;
     }
-      if (sign){
-        //   return -firstPart;
-         return -(firstPart-(firstPart>nb?1:0));
-    }
-    return firstPart;
-}
-// floor behaves similar to Math.ceil()
-function floor(nb){
-       let sign = false;
-    if(nb<0) {
-        sign=true;
-        nb = -nb;
-    };
-    let firstPart = 0
-    while(firstPart+1<=nb){
-        firstPart++
-    }
-      if (sign){
-        return -(firstPart+(nb>firstPart?1:0));
-    }
-    return firstPart
+
+    return sign ? -firstPart : firstPart;
 }
 
-//trunc behaves similar to Math.trunc()
-function trunc(nb){
-    let sign = false;
-    if(nb<0) {
-        sign=true
-        nb = -nb
-    };
+// floor behaves similar to Math.floor()
+function floor(nb) {
+    let sign = nb < 0;
+    if (sign) {
+        nb = -nb;
+    }
+
     let firstPart = 0;
-    while(firstPart+1<=nb){
-    firstPart++
+    while (firstPart + 1 <= nb) {
+        firstPart++;
     }
-    if (sign){
-        return -firstPart;
+
+    // Adjust for negative numbers
+    return sign ? -(firstPart + (nb > firstPart ? 1 : 0)) : firstPart;
+}
+
+// trunc behaves similar to Math.trunc()
+function trunc(nb) {
+    let sign = nb < 0;
+    if (sign) {
+        nb = -nb;
     }
-    return firstPart;
+
+    let firstPart = 0;
+    while (firstPart + 1 <= nb) {
+        firstPart++;
+    }
+
+    return sign ? -firstPart : firstPart;
 }
