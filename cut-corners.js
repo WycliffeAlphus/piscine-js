@@ -54,3 +54,8 @@ function trunc(nb) {
 
     return sign ? -firstPart : firstPart;
 }
+
+
+let numArr = [3, -3, 3, -3, 0]
+
+console.log(numArr.map(round))
