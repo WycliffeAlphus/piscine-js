@@ -71,22 +71,25 @@ function floor(nb) {
 }
 
 // trunc function behaves similar to Math.trunc()
-// function trunc(nb) {
-//     nb = Number(nb);
-//     if (nb === 0 || nb > Number.MAX_SAFE_INTEGER || nb < Number.MIN_SAFE_INTEGER) {
-//         return 0;
-//     }
-//     let sign = nb < 0;
-//     if (sign) {
-//         nb = -nb;
-//     }
-//     let intPart = nb - modulo(nb, 1);
-//     return sign ? -intPart : intPart;
-// }
+function trunc(nb) {
+    nb = Number(nb);
+    
+    // Return 0 for special cases
+    if (nb === 0 || nb > Number.MAX_SAFE_INTEGER || nb < Number.MIN_SAFE_INTEGER) {
+        return 0;
+    }
 
+    // Ensure that nb is a finite number
+    if (!isFinite(nb)) {
+        return 0;
+    }
 
-function trunc(nb){
-    nb = nb.toString()
-    nb = nb.split(".")
-    return Number(nb[0])
+    let sign = nb < 0;
+    if (sign) {
+        nb = -nb;
+    }
+
+    // Use modulo safely
+    let intPart = nb - modulo(nb, 1);
+    return sign ? -intPart : intPart;
 }
