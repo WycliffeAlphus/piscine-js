@@ -35,3 +35,4 @@ function join(a,b){
     }
     return nString
 }
+console.log((split('ggg - ddd - b', ' - ')))
