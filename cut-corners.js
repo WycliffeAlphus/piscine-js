@@ -8,10 +8,10 @@ function round(nb){
 if (nb<0) return -round(-nb);
   let firstPart = 0;
   while(firstPart+1 <= nb){
-      firstPart++
+      firstPart++;
   }
   if (sign){
-      return -((nb-firstPart)>0.5?firstPart-1:firstPart);
+      return -((nb-firstPart)>0.5?firstPart+1:firstPart);
   }
   return (nb-firstPart)>0.5?firstPart+1:firstPart;
 }
@@ -28,7 +28,8 @@ function ceil(nb){
         firstPart++
     }
       if (sign){
-        return -(firstPart-(firstPart>nb?1:0));
+        //   return -firstPart;
+         return -(firstPart-(firstPart>nb?1:0));
     }
     return firstPart;
 }
