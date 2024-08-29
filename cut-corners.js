@@ -86,5 +86,5 @@ function floor(nb) {
 
 
 function trunc(nb){
-    return true
+    return nb
 }
