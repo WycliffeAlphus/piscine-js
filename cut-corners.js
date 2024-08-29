@@ -4,10 +4,9 @@ function round(nb) {
     if (sign) {
         nb = -nb;
     }
-
-    let firstPart = 0;
-    while (firstPart + 1 <= nb) {
-        firstPart++;
+let firstPart =0;
+    for (;firstPart + 1 <= nb;) {
+        firstPart++
         if (firstPart+1>nb){
             break;
         }
@@ -23,10 +22,9 @@ function ceil(nb) {
     if (sign) {
         nb = -nb;
     }
-
-    let firstPart = 0;
-    while (firstPart < nb) {
-        firstPart++;
+    let firstPart=0;
+    for (;firstPart < nb;) {
+        firstPart++
         if (firstPart>=nb){
             break;
         }
@@ -45,10 +43,9 @@ function floor(nb) {
     if (sign) {
         nb = -nb;
     }
-
-    let firstPart = 0;
-    while (firstPart + 1 <= nb) {
-        firstPart++;
+    let firstPart=0;
+    for (;firstPart + 1 <= nb;) {
+        firstPart++
         if (firstPart+1>nb){
             break;
         }
@@ -67,10 +64,9 @@ function trunc(nb) {
     if (sign) {
         nb = -nb;
     }
-
-    let firstPart = 0;
-    while (firstPart + 1 <= nb) {
-        firstPart++;
+    let firstPart=0
+    for (;firstPart + 1 <= nb;){
+        firstPart++
         if (firstPart+1>nb){
             break;
         }
@@ -78,3 +74,4 @@ function trunc(nb) {
 
     return sign ? -(firstPart) : firstPart;
 }
+
