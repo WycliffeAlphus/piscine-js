@@ -1,31 +1,16 @@
 function nasa(n){
+    let res =[];
 for (let i=1; i<=n; i++){
-    let res ="";
     if (i%3===0 && i%5===0){
-        if (res.length===0){
-            res +="NASA"
-        } else {
-            res +=" "+"NASA"
-        }
+       res.push("NASA");
     } else if (i%3===0){
-        if (res.length===0){
-            res +="NA"
-        } else {
-            res +=" "+"NA"
-        }
+       res.push("NA")
     } else if (i%5===0){
-        if (res.length===0){
-            res +="SA"
-        } else {
-            res +=" "+"SA"
-        }
+       res.push("NASA");
     } else {
-        if (res.length===0) {
-        res +=i.toFixed()
-    } else {
-        res +=" "+i.toFixed()
-    }
+          res.push(i.toString());
 }
 }
+return res.join(" ");
 }
 console.log(nasa(15))
