@@ -2,6 +2,13 @@ function split(a, b){
 if (typeof b==='undefined'){
     return [a]
 }
+ if (b === "") {
+        let newS = [];
+        for (let i = 0; i < a.length; i++) {
+            newS.push(a[i]); // Push each character into the array
+        }
+        return newS;
+    }
 let newS = [];
 let temp = "";
 for (let i=0; i<a.length; i++){
@@ -27,7 +34,7 @@ function join(a,b){
   
     for (let i=0; i < a.length;i++){
 
-        if (nString.length===0){
+        if (i===0){
             nString+=a[i]
         } else {
             nString += b+a[i]
@@ -35,4 +42,3 @@ function join(a,b){
     }
     return nString
 }
-console.log((split('ggg - ddd - b', ' - ')))
