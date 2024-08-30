@@ -1,28 +1,32 @@
-function split(a, b){
-if (typeof b==='undefined'){
-    return [a]
-}
- if (b === "") {
+function split(a, b) {
+    if (typeof b === 'undefined') {
+        return [a];
+    }
+    if (b === "") {
         let newS = [];
         for (let i = 0; i < a.length; i++) {
-            newS.push(a[i]); // Push each character into the array
+            newS.push(a[i]);
         }
         return newS;
     }
-let newS = [];
-let temp = "";
-for (let i=0; i<a.length; i++){
-    if (a[i] === b){
-        newS.push(temp)
-        temp = ""
-        continue
+    
+    let newS = [];
+    let temp = "";
+    let len = b.length; // Length of the delimiter
+    for (let i = 0; i < a.length; i++) {
+        // Check if the substring from current index matches the delimiter
+        if (a.slice(i, i + len) === b) {
+            newS.push(temp);
+            temp = "";
+            i += len - 1; // Skip over the delimiter
+            continue;
+        }
+        temp += a[i];
     }
-    temp+=a[i]
-}
-if (temp.length > 0){
-    newS.push(temp)
-}
-return newS
+    if (temp.length > 0 || a.length === 0) {
+        newS.push(temp);
+    }
+    return newS;
 }
 
 
