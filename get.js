@@ -18,6 +18,9 @@ function get(src, path) {
         } else {
             return undefined; // Current is not an object or array
         }
+        if (typeof current === 'function') {
+            current = current.current; // Call the function
+        }
     }
 
     // Return the final value found at the path
