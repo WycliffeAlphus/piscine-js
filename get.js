@@ -20,10 +20,20 @@ function get(src, path) {
         }
     }
 
+    // Handle if current is a function
     if (typeof current === 'function') {
-        current = current(); // Call the function
+        try {
+            current = current(); // Call the function
+        } catch (e) {
+            if (e instanceof TypeError && e.message.includes('object is not extensible')) {
+                // Handle or log the error as needed
+                console.error("Attempted to modify a non-extensible object.");
+                return undefined; // Or handle differently
+            } else {
+                throw e; // Re-throw if it's not the expected error
+            }
+        }
     }
 
-    // Return the final value found at the path
-    return current; 
+    return current;
 }
