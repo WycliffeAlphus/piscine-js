@@ -7,5 +7,3 @@ function triangle(a, b){
     }
     return res
 }
-
-console.log(triangle("*",5))
