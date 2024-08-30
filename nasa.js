@@ -1,24 +1,31 @@
 function nasa(n){
-    if (n%3===0&&n%5===0){
-        return "NASA"
-    }
-    if (n%3===0){
-        return "NA"
-    }
-    if (n%5===0){
-        return "SA"
-    }
-let res ="";
-    while (n > 0){
-        let last = n%10;
+for (let i=1; i<=n; i++){
+    let res ="";
+    if (i%3===0 && i%5===0){
         if (res.length===0){
-            res +=last.toFixed()
+            res +="NASA"
         } else {
-            res =last.toFixed()+","+res
+            res +=" "+"NASA"
         }
-        n = Math.floor(n/10)
+    } else if (i%3===0){
+        if (res.length===0){
+            res +="NA"
+        } else {
+            res +=" "+"NA"
+        }
+    } else if (i%5===0){
+        if (res.length===0){
+            res +="SA"
+        } else {
+            res +=" "+"SA"
+        }
+    } else {
+        if (res.length===0) {
+        res +=i.toFixed()
+    } else {
+        res +=" "+i.toFixed()
     }
-    return res
 }
-
-console.log(nasa(11144))
+}
+}
+console.log(nasa(15))
