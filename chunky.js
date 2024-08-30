@@ -4,18 +4,21 @@
 // If the array cannot be split evenly, the last sub-array will contain the remaining elements.
 
 
-function chunk(a, b){
-let nArray=[];
-let temp =[];
+function chunk(a, b) {
+    let nArray = [];
+    let temp = [];
 
-for (let i=1; i<=a.length; i++){
-    if (i===b){
-        nArray.push(temp);
-        temp =[];
-    } else {
+    for (let i = 0; i < a.length; i++) { 
         temp.push(a[i]);
+        if (temp.length === b) { 
+            nArray.push(temp);
+            temp = []; 
+        }
     }
-}
-nArray.push(temp)
-return nArray
+    // Push the remaining elements as the last chunk if any exist
+    if (temp.length > 0) {
+        nArray.push(temp);
+    }
+
+    return nArray;
 }
