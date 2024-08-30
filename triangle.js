@@ -3,7 +3,11 @@ function triangle(a, b){
     let res ="";
     for (let i=0;i<b;i++){
         count++
-        res += a.repeat(count)+"\n"
+        if (count != b) {
+            res += a.repeat(count)+"\n"
+        } else {
+            res += a.repeat(count)
+        }
     }
     return res
 }
