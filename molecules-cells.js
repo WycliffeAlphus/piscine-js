@@ -7,7 +7,7 @@ function RNA(n){
     '' : '',
  }   
 
-res =[];
+let res =[];
 for (let i=0;i<n.length;i++){
     res.push(mapper[n[i].toUpperCase()]);
 }
@@ -23,10 +23,9 @@ function DNA(n){
       '' : '',
      }   
     
-    res =[];
+    let res =[];
     for (let i=0;i<n.length;i++){
         res.push(mapper[n[i].toUpperCase()]);
     }
     return res.join("")
 }
-console.log(RNA(''))
