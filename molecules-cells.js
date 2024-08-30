@@ -4,6 +4,7 @@ function RNA(n){
     C : "G",
     T : "A",
     A : "U",
+    '' : '',
  }   
 
 res =[];
@@ -19,6 +20,7 @@ function DNA(n){
       G : "C",
       A : "T",
       U : "A",
+      '' : '',
      }   
     
     res =[];
@@ -27,3 +29,4 @@ function DNA(n){
     }
     return res.join("")
 }
+console.log(RNA(''))
