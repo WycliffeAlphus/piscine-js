@@ -1,16 +1,15 @@
-function get(src, path){
-
+function get(src, path) {
     let keysArr = path.split(".");
     let current = src;
 
     for (let i = 0; i < keysArr.length; i++) {
-       
         if (current && typeof current === 'object') {
-            // Handle array indices
             const key = keysArr[i];
             const index = parseInt(key, 10);
+
+            // Check if the key is a valid array index
             if (!isNaN(index) && Array.isArray(current)) {
-                current = current[index]; 
+                current = current[index]; // Access array element
             } else if (key in current) {
                 current = current[key]; // Access object property
             } else {
@@ -21,10 +20,6 @@ function get(src, path){
         }
     }
 
-    // If the last key is a method
-    if (typeof current === 'function') {
-        return current(); // Call the function
-    }
-
+    // Return the final value found at the path
     return current; 
 }
