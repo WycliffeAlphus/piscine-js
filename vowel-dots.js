@@ -1,5 +1,5 @@
+   const vowels = /[aeiou]/i; //global variable
 function vowelDots(n){
-    let vowels = /[aeiou]/gi;
-     return n.replace(vowels, '$&.'); 
+     return n.replace(new RegExp(vowels.source, 'gi'), '$&.'); 
      // $& represents the matched vowel
 }
