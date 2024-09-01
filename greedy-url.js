@@ -13,10 +13,22 @@ function greedyQuery(dataSet) {
 }
 
 function notSoGreedy(dataSet) {
-  const notSoGreedyRegex = /https?:\/\/\S+\?\S*\w(?:[&?]\S*\w){1,2}/g;
+  const notSoGreedyRegex = /https?:\/\/\S+\?\S+/g;
   
   return (dataSet.match(notSoGreedyRegex) || []).filter(url => {
-    const queryParams = url.split(/[&?]/).length - 1;
-    return queryParams >= 2 && queryParams <= 3;
+    // Split the URL into base and query parts
+    const [base, query] = url.split('?');
+    
+    // If there's no query part, it doesn't meet our criteria
+    if (!query) return false;
+    
+    // Split the query part by '&', but be careful with array-like parameters
+    const params = query.split(/&(?![^\[]*\])/);
+    
+    // Count the number of parameters
+    const paramCount = params.length;
+    
+    // Return true if the number of parameters is 2 or 3
+    return paramCount >= 2 && paramCount <= 3;
   });
 }
