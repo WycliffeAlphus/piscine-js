@@ -1,25 +1,20 @@
 function isValid(date){
-return new Date(date)?true:false;
+    const parsedDate = new Date(date);
+    return !isNaN(parsedDate.getTime());
 }
 
-function isAfter(date1,date2){
-return new Date(date1) > new Date(date2);
+function isAfter(date1, date2) {
+    return isValid(date1) && isValid(date2) && new Date(date1) > new Date(date2);
 }
 
-function isBefore(date1, date2){
-return new Date(date1) < new Date(date2);
+function isBefore(date1, date2) {
+    return isValid(date1) && isValid(date2) && new Date(date1) < new Date(date2);
 }
 
-function isFuture(date){
-if (new Date (date)){
-    return new Date(date) > new Date();
-}
-return false;
+function isFuture(date) {
+    return isValid(date) && new Date(date) > new Date();
 }
 
-function isPast(date){
-    if (new Date (date)) {
-        return new Date() > new Date(date);
-    }
-    return false;
+function isPast(date) {
+    return isValid(date) && new Date() > new Date(date);
 }
