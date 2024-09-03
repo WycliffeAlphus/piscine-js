@@ -1,6 +1,7 @@
-function isValid(date){
+function isValid(date) {
     const parsedDate = new Date(date);
-    return !isNaN(parsedDate.getTime());
+    // Check if the parsed date is a valid date and the original string is in ISO format
+    return !isNaN(parsedDate.getTime()) && parsedDate.toISOString().startsWith(date.split('T')[0]);
 }
 
 function isAfter(date1, date2) {
