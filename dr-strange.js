@@ -1,27 +1,22 @@
 function addWeek(date) {
-    const weekDay = {
-        0: "Monday",
-        1: "Tuesday",
-        2: "Wednesday",
-        3: "Thursday",
-        4: "Friday",
-        5: "Saturday",
-        6: "Sunday",
-        7: "secondMonday",
-        8: "secondTuesday",
-        9: "secondWednesday",
-        10: "secondThursday",
-        11: "secondFriday",
-        12: "secondSaturday",
-        13: "secondSunday"
-    };
+   
+    const days = [
+        'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday',
+        'secondMonday', 'secondTuesday', 'secondWednesday', 'secondThursday',
+        'secondFriday', 'secondSaturday', 'secondSunday'
+    ];
+    
+  
+    const epoch = new Date('0001-01-01');
+    const dayDiff = Math.floor((date - epoch) / (86400000));
+    
+   
+    const dayIndex = dayDiff % 14;
 
-    // Epoch date is 0001-01-01, but we need to account for timezones, thus UTC
-    const epoch = new Date(Date.UTC(1, 0, 1)); // January 1, 0001 UTC
-    const diffMilliSeconds = date.getTime() - epoch.getTime(); 
-    const diffDays = Math.floor(diffMilliSeconds / 86400000); 
-    return weekDay[diffDays % 14];
+ 
+    return days[dayIndex];
 }
+
 
 
 function timeTravel(obj){
@@ -29,3 +24,13 @@ function timeTravel(obj){
     newDate.setHours(obj.hour, obj.minute, obj.second);
     return newDate;
 }
+
+console.log(addWeek(new Date('0001-01-01'))) // Output: Monday
+console.log(
+    timeTravel({
+      date: new Date('2020-05-29 23:25:22'),
+      hour: 21,
+      minute: 22,
+      second: 22,
+    }).toString()
+    )
