@@ -1,6 +1,16 @@
 function dayOfTheYear(date){
- const yearStart = new Date(date.getFullYear(), 0, 1);
-const diffMilli = date.getTime() - yearStart.getTime();
- const diffDays = Math.floor(diffMilli/(24*60*60*1000));
- return diffDays+1; //cover for 1st of Jan
+ const year = date.getFullYear();
+ const month = date.getMonth();
+ const dayInMonth = date.getDate();
+ 
+ const daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+ if ((year%4===0&&year%100 !==0)||year%400===0){
+     daysInMonth[1] = 29;
+ }
+ let dayCount = dayInMonth;
+ for ( let i=0; i<month;i++){
+     dayCount += daysInMonth[i];
+ }
+ return dayCount
 }
