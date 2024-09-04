@@ -22,7 +22,7 @@ function trimTemp(objArray){
    
 return objArray.map((obj)=>{
     obj.temperature = obj.temperature.trim()
-    return objArray
+    return obj
 });
 }
 function tempForecasts(objArray){
@@ -34,3 +34,7 @@ return objArray.map((obj) =>{
 });
 }
 
+console.log(trimTemp([
+    { city: 'Los Angeles', temperature: '  101 °F   ' },
+    { city: 'San Francisco', temperature: ' 84 ° F   ' },
+  ]))
