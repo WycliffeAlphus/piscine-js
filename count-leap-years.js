@@ -1,12 +1,13 @@
+function isLeapYear(year) {
+    return (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0);
+}
 function countLeapYears(date) {
-    let year = date.getFullYear();
-    let count = 0;
-  
-   
+    let count = 0
+    const year = date.getFullYear();
     for (let i = year; i > 4; i--) {
-        if ((i % 4 === 0 && year % 100 != 0) || (year % 400 === 0)) {
-            count++;
+        if (isLeapYear(i)) {
+            count++
         }
     }
-    return count;
+    return count
 }
