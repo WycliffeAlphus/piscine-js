@@ -1,21 +1,26 @@
-function adder(arr){
+function adder(arr, initialValue = 0) {
     return arr.reduce(
-        (accumulator,currentValue) => accumulator+currentValue
+        (accumulator, currentValue) => accumulator + currentValue,
+        initialValue
     );
 }
 
-function sumOrMul(arr){
+function sumOrMul(arr, initialValue = arr[0]) {
     return arr.reduce(
-        (accumulator, currentValue)=> {
-            if (currentValue%2===0){
-               return accumulator * currentValue
+        (accumulator, currentValue) => {
+            if (currentValue % 2 === 0) {
+                return accumulator * currentValue;
             } else {
-               return accumulator + currentValue
+                return accumulator + currentValue;
             }
-        }
-    )
+        },
+        initialValue
+    );
 }
 
-function funcExec(arr){
-    return arr.reduce((accumulator, currentFunc)=>currentFunc(accumulator))
+function funcExec(arr, initialValue) {
+    return arr.reduce(
+        (accumulator, currentFunc) => currentFunc(accumulator),
+        initialValue
+    );
 }
