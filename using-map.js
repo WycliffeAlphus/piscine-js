@@ -24,15 +24,8 @@ function tempForecasts(objArray){
 return objArray.map((obj) =>{
   const celc = parseFloat(obj.temperature);
   const celsiusValue = Math.floor((celc-32)*5/9);
-    return `${celsiusValue}°Celsius  in ${obj.city}, ${obj.state[0].toUpperCase()+obj.state.slice(1).toLowerCase()}`
+  const stateValue = obj.state.charAt(0).toUpperCase()+obj.state.slice(1).toLowerCase()
+    return `${celsiusValue}°Celsius  in ${obj.city}, ${stateValue}`
 });
 }
 
-console.log(tempForecasts([
-    {
-      city: 'Pasadena',
-      temperature: ' 101 °F',
-      state: 'california',
-      region: 'West',
-    },
-  ]))
