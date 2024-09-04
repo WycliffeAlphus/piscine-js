@@ -1,11 +1,11 @@
-function adder(arr, initialValue) {
+function adder(arr, initialValue = 0) {
     return arr.reduce(
         (accumulator, currentValue) => accumulator + currentValue,
         initialValue
     );
 }
 
-function sumOrMul(arr, initialValue) {
+function sumOrMul(arr, initialValue = arr[0]) {
     return arr.reduce(
         (accumulator, currentValue) => {
             if (currentValue % 2 === 0) {
