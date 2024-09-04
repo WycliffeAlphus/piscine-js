@@ -4,10 +4,9 @@ function countLeapYears(date) {
   
    
     for (let i = 1; i <= year; i++) {
-        if (i % 4 === 0) {
+        if ((i % 4 === 0 && year % 100 != 0) || (year % 400 === 0)) {
             count++;
         }
     }
-  
     return count;
 }
