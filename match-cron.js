@@ -1,10 +1,10 @@
 function matchCron(cron, date){
-    const[cronMinute, cronHour, cronDayOfMonth, cronMY, cronDW] = cron.split(' ');
-    rMinute = date.getMinutes();
-    rHour = date.getHours();
-    rdayofMonth = date.getDate();
-    rMonth = date.getMonth()+1;
-    rdayOfWeek = date.getDay() || 7;
+    const [cronMinute, cronHour, cronDayOfMonth, cronMY, cronDW] = cron.split(' ');
+    const rMinute = date.getMinutes();
+    const rHour = date.getHours();
+    const rdayofMonth = date.getDate();
+    const rMonth = date.getMonth()+1;
+    const rdayOfWeek = date.getDay() || 7;
 
     function matcher(cronVal, dateVal){
         return cronVal === "*" || parseInt(cronVal) === dateVal;
