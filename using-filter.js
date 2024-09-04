@@ -22,14 +22,15 @@ function filter1DistinctVowel(arr) {
 }
 
 
-function multiFilter(arrString){
-return arrString.filter(obj =>{
-    const longString = obj.capital && obj.capital.length >= 8;
-    const startCons = obj.name && !/^[aeiou]/i.test(obj.name);
-    const hasVowel = obj.tage && /[aeiou]/i.test(object.tag);
-    const isNotSouth = obj.region & obj.region !=='South';
-    return longString && startCons && hasVowel && isNotSouth;
-});
+function multiFilter(arrString) {
+    return arrString.filter(obj => {
+        const longString = obj.capital && obj.capital.length >= 8;
+        const startCons = obj.name && !/^[aeiou]/i.test(obj.name);
+        const hasVowel = obj.tag && /[aeiou]/i.test(obj.tag);
+        const isNotSouth = obj.region && obj.region !== 'South';
+        return longString && startCons && hasVowel && isNotSouth;
+    });
 }
+
 
 
