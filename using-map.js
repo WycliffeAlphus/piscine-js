@@ -3,7 +3,7 @@ function citiesOnly(objArray){
 }
 
 function upperCasingStates(objArray){
-    return objArray.map((str)=>str[0].toUpperCase() + str.slice(1).toLowerCase());
+    return objArray.map((str)=>str.charAt(0).toUpperCase() + str.slice(1).toLowerCase());
 }
 
 function fahrenheitToCelsius(objArray){
