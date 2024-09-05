@@ -12,7 +12,7 @@ function reject(array, func){
     let rejected = [];
     for (let i=0; i<array.length; i++){
         if (!func(array[i], i, array)){
-            rejected.push(arr[i]);
+            rejected.push(array[i]);
         }
     }
    return rejected 
@@ -22,10 +22,10 @@ function partition(array, func){
     let passed = [];
     let rejected = [];
     for (let i=0; i<array.length;i++){
-        if (func(arr[i], i, array)){
-            passed.push(arr[i]);
+        if (func(array[i], i, array)){
+            passed.push(array[i]);
         } else {
-            rejected.push(arr[i]);
+            rejected.push(array[i]);
         }
     }
     return [passed, rejected];
