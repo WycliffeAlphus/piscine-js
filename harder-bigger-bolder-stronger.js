@@ -18,7 +18,7 @@ export function generateLetters() {
             letterDiv.style.fontWeight = '600';
         }
 
-        document.body.appendChild(letterDiv);
+        document.querySelector("body").appendChild(letterDiv);
     }
 }
 
