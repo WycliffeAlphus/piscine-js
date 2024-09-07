@@ -1,10 +1,6 @@
 
 export function generateLetters() {
     const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    const container = document.createElement('div');
-    container.id = 'letters-container';
-    document.body.appendChild(container);
-
     for (let i = 0; i < 120; i++) {
         const letterDiv = document.createElement("div");
         letterDiv.classList.add('letter');  
@@ -16,13 +12,13 @@ export function generateLetters() {
 
         if (i < 40) {
             letterDiv.style.fontWeight = '300';
-        } else if (i >= 40 && i < 80 ) {
+        } else if (i < 80 ) {
             letterDiv.style.fontWeight = '400';
         } else {
             letterDiv.style.fontWeight = '600';
         }
 
-        container.appendChild(letterDiv);
+        document.getElementsByName("Body")[0].appendChild(letterDiv);
     }
 }
 
