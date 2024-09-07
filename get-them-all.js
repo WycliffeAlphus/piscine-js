@@ -17,7 +17,7 @@ export const getActive = () => {
 }
 
 export const getBonannoPisano = () => {
-    const bonano = document.querySelectorAll('body #BonannoPisano');
-    const notBonano = document.querySelectorAll('body > :not(#BonannoPisano)');
-    return [bonano, notBonano];
+    const bonano = document.getElementById('BonannoPisano');
+    const active = document.querySelectorAll('body .classical.active');
+    return [bonano, active];
 }
