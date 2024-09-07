@@ -1,8 +1,10 @@
-import {styles} from "./pimp-my-style.data.js"
-let addMode = true;  
-let currentIndex = 0;  
-export function pimp() {
+const styles = ["one", "two", "three"];
+
+let addMode = true;
+let currentIndex = 0;
+function pimp() {
     const button = document.querySelector('.button');
+
 
     if (!addMode) {
         button.classList.toggle('unpimp');
@@ -10,9 +12,9 @@ export function pimp() {
             currentIndex--;
             button.classList.remove(styles[currentIndex]);
         }
-        
+
         if (currentIndex === 0) {
-            addMode = true;  
+            addMode = true;
         }
         button.classList.toggle('unpimp');
         return;
@@ -24,7 +26,7 @@ export function pimp() {
     }
 
     if (currentIndex === styles.length) {
-        addMode = false;  
+        addMode = false;
     }
 }
 
