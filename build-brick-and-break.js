@@ -14,7 +14,7 @@ export function build(nb) {
         brick.id = `brick-${count + 1}`;
 
       
-        if ((count + 1) % 3 === 0) {
+        if((count + 1) % 3 === 2) {
             brick.dataset.foundation = 'true'
         }
 
