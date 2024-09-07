@@ -7,7 +7,7 @@ export function generateLetters() {
         const randomLetter = alphabet[random(0, 25)];
         letterDiv.textContent = randomLetter;
 
-        const fontSize = 10 + i +"px";
+        const fontSize = 11 + i +"px";
         letterDiv.style.fontSize = `${fontSize}`;
 
         if (i < 40) {
