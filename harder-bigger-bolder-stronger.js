@@ -8,11 +8,11 @@ export function generateLetters() {
     for (let i = 0; i < 120; i++) {
         const letterDiv = document.createElement("div");
         letterDiv.classList.add('letter');  
-        const randomLetter = alphabet[Math.floor(Math.random() * alphabet.length)];
+        const randomLetter = alphabet[random(0, 25)];
         letterDiv.textContent = randomLetter;
 
-        const fontSize = 11 + ((130 - 11) / 119) * i;
-        letterDiv.style.fontSize = `${fontSize}px`;
+        const fontSize = 10 + i +"px";
+        letterDiv.style.fontSize = `${fontSize}`;
 
         if (i < 40) {
             letterDiv.style.fontWeight = '300';
