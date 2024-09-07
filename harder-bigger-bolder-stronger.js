@@ -7,7 +7,7 @@ export function generateLetters() {
 
     for (let i = 0; i < 120; i++) {
         const letterDiv = document.createElement("div");
-        letterDiv.classList.add('letter'); 
+        letterDiv.classList.add('letter');  
         const randomLetter = alphabet[Math.floor(Math.random() * alphabet.length)];
         letterDiv.textContent = randomLetter;
 
@@ -27,3 +27,4 @@ export function generateLetters() {
 }
 
 generateLetters();
+
