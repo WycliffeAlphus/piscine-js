@@ -1,4 +1,4 @@
-function build(nb) {
+export function build(nb) {
     let count = 0;
 
     const interval = setInterval(() => {
@@ -15,7 +15,7 @@ function build(nb) {
 
       
         if ((count + 1) % 3 === 0) {
-            brick.setAttribute('foundation', 'true');
+            brick.dataset.foundation = 'true'
         }
 
       
@@ -25,22 +25,22 @@ function build(nb) {
     }, 100); 
 }
 
-function repair(...ids){
+export function repair(...ids){
     ids.forEach( id => {
       const brick =  document.getElementById(id)
       if (brick) {
         if (brick) {
             if (id.includes('brick') && (parseInt(id.split('-')[1]) % 3 === 0)) {
-                brick.setAttribute('repaired', 'in progress');
+                brick.dataset.repaired = 'in progress';
             } else {
-                brick.setAttribute('repaired', 'true');
+                brick.dataset.repaired = 'true'; 
             }
         }
       }
     });  
 }
 
-function destroy() {
+export function destroy() {
     
     const bricks = document.querySelectorAll('div[id^="brick"]');
     if (bricks.length > 0) {
