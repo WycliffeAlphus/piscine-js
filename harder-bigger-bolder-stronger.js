@@ -3,6 +3,7 @@ export function generateLetters() {
     const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     const container = document.createElement('div');
     container.id = 'letters-container';
+    document.body.appendChild(container);
 
     for (let i = 0; i < 120; i++) {
         const letterDiv = document.createElement("div");
