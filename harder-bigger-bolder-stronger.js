@@ -1,5 +1,5 @@
 
-function generateLetters() {
+export function generateLetters() {
     const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     const container = document.createElement('div');
     container.id = 'letters-container';
