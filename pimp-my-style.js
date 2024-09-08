@@ -1,33 +1,18 @@
-const styles = ["one", "two", "three"];
-
-let addMode = true;
-let currentIndex = 0;
-function pimp() {
-    const button = document.querySelector('.button');
-
-
-    if (!addMode) {
-        button.classList.toggle('unpimp');
-        if (currentIndex > 0) {
-            currentIndex--;
-            button.classList.remove(styles[currentIndex]);
-        }
-
-        if (currentIndex === 0) {
-            addMode = true;
-        }
-        button.classList.toggle('unpimp');
-        return;
+import { styles } from "./pimp-my-style.data.js";
+let counter = 0;
+export function pimp() {
+  let btn = document.querySelector("button.button");
+  if (!btn.classList.contains("unpimp")) {
+    btn.classList.add(styles[counter]);
+    counter++;
+  } else {
+    counter--;
+    btn.classList.remove(styles[counter]);
+    if (counter === 0) {
+      btn.classList.toggle("unpimp");
     }
-
-    if (currentIndex < styles.length) {
-        button.classList.add(styles[currentIndex]);
-        currentIndex++;
-    }
-
-    if (currentIndex === styles.length) {
-        addMode = false;
-    }
+  }
+  if (counter === styles.length) {
+    btn.classList.toggle("unpimp");
+  }
 }
-
-document.addEventListener('click', pimp);
