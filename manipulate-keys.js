@@ -40,9 +40,3 @@ function reduceKeys(obj, callback, initialValue){
     }
     return res;
 }
-
-const nutrients = { carbohydrates: 12, protein: 20, fat: 5 }
-
-console.log(filterKeys(nutrients, (key) => /protein/.test(key)))
-console.log(mapKeys(nutrients, (k) => `-${k}`))
-console.log(reduceKeys(nutrients, (acc, cr) =>acc.concat(', ', cr)))
