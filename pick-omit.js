@@ -8,6 +8,6 @@ function pick(obj, keys) {
   function omit(obj, keys) {
     const keysArray = Array.isArray(keys) ? keys : [keys];
     return Object.fromEntries(
-      Object.entries(obj).reject(([key]) => keysArray.includes(key))
+      Object.entries(obj).filter(([key]) => !keysArray.includes(key))
     );
   }
