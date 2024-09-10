@@ -1,12 +1,13 @@
-function pick(obj, strArr){
-const keysArr = Array.isArray(strArr)?strArr:[strArr]
-return Object.fromEntries(
-    Object.entries(obj).filter((key)=>keysArr.includes(key))
-);
-}
-function omit(obj, strArr){
-    const keysArr = Array.isArray(strArr)?strArr:[strArr]
+function pick(obj, keys) {
+    const keysArray = Array.isArray(keys) ? keys : [keys];
     return Object.fromEntries(
-        Object.entries(obj).reject((key)=>keysArr.includes(key))
+      Object.entries(obj).filter(([key]) => keysArray.includes(key))
     );
-}
+  }
+  
+  function pick(obj, keys) {
+    const keysArray = Array.isArray(keys) ? keys : [keys];
+    return Object.fromEntries(
+      Object.entries(obj).reject(([key]) => keysArray.includes(key))
+    );
+  }
