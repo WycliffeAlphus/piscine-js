@@ -31,7 +31,8 @@ function reduceKeys(obj, callback, initialValue){
     for (let i=0; i<keys.length; i++){
         if (obj.hasOwnProperty(keys[i])){
             if (accumulator==':'){
-                return callback(accumulator, keys[i]);
+                accumulator += callback(accumulator, keys[i]);
+                return accumulator;
             }
             if (res === ""){
                 res += keys[i]
