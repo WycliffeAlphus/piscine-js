@@ -1,6 +1,6 @@
 function filterEntries(cart, func){
    let res = {};
-   for (let [key, value] in object.entries(cart)){
+   for (let [key, value] in Object.entries(cart)){
     if (func([key, value])){
         res[key] = value;
     }
@@ -10,7 +10,7 @@ function filterEntries(cart, func){
 
 function mapEntries(cart, func){
     let res = {};
-    for (let [key, value] in object.entries(cart)){
+    for (let [key, value] in Object.entries(cart)){
         if (func([key, value])){
             res = func([key, value]);
         }
