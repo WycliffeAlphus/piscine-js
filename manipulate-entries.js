@@ -1,44 +1,58 @@
-function filterEntries(cart, [key, value]){
-    if (typeof key === 'undefined'){
-        Object.entries(cart).filter(([, v])=>value===v) 
+function filterEntries(cart, func){
+   let res = {};
+   for (let [key, value] in object.entries(cart)){
+    if (func([key, value])){
+        res[key] = value;
     }
-    if (typeof value ==='undefined'){
-        Object.entries(cart).filter(([k, ])=>key===k) 
-    }
-return Object.fromEntries(
-    Object.entries(cart).filter(([k, v])=>key===k&&value===v)
-); 
+   }
+   return res;
 }
 
-function mapEntries(cart, [key, value]){
-    return Object.fromEntries(
-        object.entris(cart).map(([k,v])=>[key(k), value(v)])
-    )
+function mapEntries(cart, func){
+    let res = {};
+    for (let [key, value] in object.entries(cart)){
+        if (func([key, value])){
+            res = func([key, value]);
+        }
+    }
+    return res
 }
 
 
 function reduceEntries(cart, reducer, initialValue){
-    return Object.entries(cart).reduce(
-        (accumulator, [k, v]) => reducer(accumulator, [k, v]),
-        initialValue
-    );
+    let entries = Object.entries(cart)
+    let acc, start;
+
+    if (initialValue === 'undefined'){
+        if (entries.length === 0) return undefined;
+        start = 1;
+        acc = cart[0][1];
+    } else {
+        start = 0;
+        acc = initialValue
+    }
+
+    for (let i=0; i<entries.length; i++){
+        acc = func(acc, entries[i])
+    }
+return acc
 }
 
 
 function totalCalories(cart){
-return reduceEntries(cart, (acc, [k,v])=> acc+(v.calories || 0), 0)
-}
+return Number(reduceEntries(cart, (total, [k, v])=>total+nutritionDB[k].calories*v/100)).toFixed(1); 
+};
 
 function lowCarbs(cart){
-return filterEntries(cart, ['carbs', (v) => v < 50  ])
+    return filterEntries(cart, ([k, v])=>nutritionDB[k].carbs*v/100<50);
 }
 
 function cartTotal(cart) {
-    return Object.entries(cart).map(([k, v]) => ({
-        item: k,
-        totalCalories: v.calories || 0,
-        totalProteins: v.protein || 0,
-        totalCarbs: v.carbs || 0,
-        totalFats: v.fats || 0
-    }));
+  return mapEntries(cart, (k, v) => {
+    const itemTotal = {};
+    for (const nutrient in nutritionDB[k]){
+        itemTotal[nutrient] = Number(nutritionDB[k]*v/100).toFixed(1);
+    }
+    return [k, itemTotal];
+  });
 }
