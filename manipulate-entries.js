@@ -1,58 +1,55 @@
-function filterEntries(cart, func){
-   let res = {};
-   for (let [key, value] in Object.entries(cart)){
-    if (func([key, value])){
-        res[key] = value;
-    }
-   }
-   return res;
-}
-
-function mapEntries(cart, func){
-    let res = {};
-    for (let [key, value] in Object.entries(cart)){
-        if (func([key, value])){
-            res = func([key, value]);
+const filterEntries = (obj, func) => {
+    const result = {};
+    for (const [key, value] of Object.entries(obj)) {
+        if (func([key, value])) {
+            result[key] = value;
         }
     }
-    return res
-}
-
-
-function reduceEntries(cart, reducer, initialValue){
-    let entries = Object.entries(cart)
-    let acc, start;
-
-    if (initialValue === 'undefined'){
-        if (entries.length === 0) return undefined;
-        start = 1;
-        acc = cart[0][1];
-    } else {
-        start = 0;
-        acc = initialValue
-    }
-
-    for (let i=0; i<entries.length; i++){
-        acc = func(acc, entries[i])
-    }
-return acc
-}
-
-
-function totalCalories(cart){
-return Number(reduceEntries(cart, (total, [k, v])=>total+nutritionDB[k].calories*v/100)).toFixed(1); 
+    return result;
 };
 
-function lowCarbs(cart){
-    return filterEntries(cart, ([k, v])=>nutritionDB[k].carbs*v/100<50);
-}
+const mapEntries = (obj, func) => {
+    const result = {};
+    for (const [key, value] of Object.entries(obj)) {
+        const [newKey, newValue] = func([key, value])
+        result[newKey] = newValue;
 
-function cartTotal(cart) {
-  return mapEntries(cart, (k, v) => {
-    const itemTotal = {};
-    for (const nutrient in nutritionDB[k]){
-        itemTotal[nutrient] = Number(nutritionDB[k]*v/100).toFixed(1);
     }
-    return [k, itemTotal];
-  });
-}
+    return result;
+};
+const reduceEntries = (obj, func, initial) => {
+    const entries = Object.entries(obj);
+    let acc, start;
+    if (initial === undefined) {
+        if (entries.length === 0) return undefined;
+        acc = entries[0][1];
+        start = 1;
+    } else {
+        acc = initial;
+        start = 0;
+    }
+    for (let i = start; i < entries.length; i++) {
+        acc = func(acc, entries[i]);
+    }
+    return acc;
+};
+
+const totalCalories = (cart) => {
+    return Number(reduceEntries(cart, (total, [item, amount]) => 
+        total + nutritionDB[item].calories * amount / 100, 0).toFixed(1));
+};
+
+const lowCarbs = (cart) => {
+    return filterEntries(cart, ([item, amount]) => 
+        nutritionDB[item].carbs * amount / 100 < 50);
+};
+
+const cartTotal = (cart) => {
+    return mapEntries(cart, ([item, amount]) => {
+        const itemTotal = {};
+        for (const nutrient in nutritionDB[item]) {
+            itemTotal[nutrient] = Number((nutritionDB[item][nutrient] * amount / 100).toFixed(3));
+        }
+        return [item, itemTotal];
+    });
+};
