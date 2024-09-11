@@ -1,4 +1,10 @@
 function filterEntries(cart, [key, value]){
+    if (typeof key === 'undefined'){
+        Object.entries(cart).filter(([, v])=>value===v) 
+    }
+    if (typeof value ==='undefined'){
+        Object.entries(cart).filter(([k, ])=>key===k) 
+    }
 return Object.fromEntries(
     Object.entries(cart).filter(([k, v])=>key===k&&value===v)
 ); 
