@@ -13,29 +13,19 @@ function debounce(func, wait) {
 }
 
 
-function opDebounce(func, wait, options = {}) {
-  const { leading = false } = options;
-  let timeout;
-  let lastCalled = false;
-
-  return function (...args) {
-    const context = this;
-    const callNow = leading && !timeout;
-
-    const later = () => {
-      timeout = null;
-      if (!leading || lastCalled) {
-        func.apply(context, args);
-      }
-      lastCalled = false;
+function opDebounce(func, delay, options = {}) {
+    let timer;
+    let isLeadingCall = true;
+    return function(...args) {
+        if (options.leading && isLeadingCall) {
+            func.apply(this, args);
+            isLeadingCall = false;
+        } else {
+            clearTimeout(timer);
+            timer = setTimeout(() => {
+                func.apply(this, args);
+                isLeadingCall = true;
+            }, delay);
+        }
     };
-
-    clearTimeout(timeout);
-    timeout = setTimeout(later, wait);
-
-    if (callNow) {
-      func.apply(context, args);
-      lastCalled = true;
-    }
-  };
 }
