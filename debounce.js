@@ -1,14 +1,17 @@
-function debounce(func, wait){
-    let timeout;
-    return function(...args){
-        const later = () => {
-            timeout = null;
-            func.apply(this, args)
-        };
-        clearTimeout(timeout);
-        timeout = setTimout(later, wait)
+function debounce(func, wait) {
+  let timeout;
+  
+  return function(...args) {
+    const later = () => {
+      timeout = null;
+      func.apply(this, args);
     };
+
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+  };
 }
+
 
 function opDebounce(func, wait, leading = false) {
   let timeout;
@@ -33,3 +36,4 @@ function opDebounce(func, wait, leading = false) {
     }
   };
 }
+
