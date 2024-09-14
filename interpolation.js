@@ -4,6 +4,8 @@ function interpolation({step, start, end, callback, duration}){
 
  // runStep runs each step with a delay   
    function runStep(i) {
+    if (i >= step)return Promise.resolve();
+
     return new Promise((resolve)=>{
         setTimeout(()=> {
             const distance = i;
@@ -11,13 +13,7 @@ function interpolation({step, start, end, callback, duration}){
             callback([distance, point]);
             resolve();
         }, delay*i);
-    });
+    }).then(() => runStep(i+1));
    }
-
- // promise create array of Promises for each step
- const promises = [];
- for (let i=0; i<step; i++){
-    promises.push(runStep(i));
- }
-return Promise.all(promises);
+   return runStep(0);
 }
