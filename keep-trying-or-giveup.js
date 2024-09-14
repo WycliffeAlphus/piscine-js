@@ -1,5 +1,10 @@
 function retry(count, callback){
     return async function(...args){
+        
+        if (count === 0) {
+            return await callback(...args);
+          }
+
         let attempts = 0;
         while (attempts < count){
             try {
