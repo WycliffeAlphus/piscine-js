@@ -17,3 +17,8 @@ function get(obj, path) {
     }, obj);
 }
 
+// Example usage
+const src = { a: [{ b: "t" }] };
+const path = "a.0.b.toString";
+
+console.log(get(src, path)); // Output: "t"
