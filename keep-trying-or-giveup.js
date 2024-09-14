@@ -1,32 +1,37 @@
-function retry(count, callback){
-    return async function(...args){
-        
-        if (count === 0) {
-            return await callback(...args);
-          }
-
-        let attempts = 0;
-        while (attempts < count){
-            try {
-                return await callback(...args)
-            } catch(error){
-                attempts++;
-
-                if (attempts >= count) {
-                    throw new Error(`Failed after ${count} attempts; ${error.message}`)
-                }
-            }
-        }
-    }
+function retry(count, callback) {
+	return async function (...args) {
+		let attempts = 0;
+		while (true) {
+			try {
+				return await callback(...args);
+			} catch (error) {
+				attempts++;
+				if (attempts > count) {
+					throw error; 
+				}
+				
+			}
+		}
+	};
 }
 
 
-function timeout(delay, callback){
-    return async function(...args){
-        const timeoutPromise = new Promise((_, reject) =>
-        setTimeout(() => reject(new Error('timeout')), delay));
+function timeout(delay, callback) {
+	return  function (...args) {
+		return new Promise((resolve, reject) => {
+			const timer = setTimeout(() => {
+				reject(new Error("timeout"));
+			}, delay);
 
-        const callbackPromise = callback(...args);
-        return Promise.race([callbackPromise, timeoutPromise])
-    };
+			callback(...args)
+				.then((result) => {
+					clearTimeout(timer);
+					resolve(result);
+				})
+				.catch((error) => {
+					clearTimeout(timer);
+					reject(error);
+				});
+		});
+	};
 }
