@@ -1,8 +1,8 @@
 import { readFile} from 'fs/promises';
-
-export const fileReader = async filename => {
+let args = process.argv[2]
+export const fileReader = async () => {
     try {
-        const content = await readFile(filename, 'utf8'); 
+        const content = await readFile(args, 'utf8'); 
         let temp = "";
         let res = "";
 
