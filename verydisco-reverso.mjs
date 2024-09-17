@@ -1,6 +1,6 @@
-import { readFile, writeFile } from 'fs/promises';
+import { readFile} from 'fs/promises';
 
-const fileReader = async filename => {
+export const fileReader = async filename => {
     try {
         const content = await readFile(filename, 'utf8'); 
         let temp = "";
@@ -26,9 +26,8 @@ const fileReader = async filename => {
             res += part2 + part1;
         }
 
-        return res.trim(); 
+        console.log(res.trim()); 
     } catch (err) {
         console.error(err);
     }
 };
-
