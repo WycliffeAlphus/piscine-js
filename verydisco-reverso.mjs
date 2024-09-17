@@ -30,5 +30,3 @@ const fileReader = async filename => {
     }
 };
 
-
-fileReader('verydisco-forever.txt');
